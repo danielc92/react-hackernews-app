@@ -32,7 +32,7 @@ class ReactComment extends Component {
                     <Comment
                     shape="square"
                     style={{marginBottom: '.6rem', border: '1px solid #f3f3f3', padding: '.75rem 1.5rem'}}
-                    avatar={<Avatar style={{ backgroundColor: '#535354' }} icon="user" />}
+                    avatar={<Avatar style={{ backgroundColor: '#339DFF' }} icon="user" />}
                     actions={[<p>{time_diff_string}</p>]}
                     author={ data.by }
                     content={
