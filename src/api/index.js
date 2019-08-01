@@ -9,6 +9,6 @@ Routes I will be using in this application.
 /v0/askstories.json
 /v0/item/{id}.json
 */
-export default hackernewsApi = axios.create({
+export default axios.create({
     baseURL: 'https://hacker-news.firebaseio.com/'
 })

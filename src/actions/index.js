@@ -1,5 +1,5 @@
 import hackernewsApi from '../api';
-import { FETCH_TOP_STORY_IDS } from '../constants';
+import { FETCH_TOP_STORY_IDS, FETCH_LIMIT } from '../constants';
 
 export const fetchTopStoryIds = () => async (dispatch, getState) => {
 
@@ -7,6 +7,6 @@ export const fetchTopStoryIds = () => async (dispatch, getState) => {
 
     dispatch({
         type: FETCH_TOP_STORY_IDS,
-        payload: response.data
+        payload: response.data.slice(0, FETCH_LIMIT)
     })
 }
