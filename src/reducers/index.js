@@ -94,7 +94,7 @@ export const rootReducer = combineReducers({
     newStoryItems: newStoryItemsReducer,
     bestStoryIds: bestStoryIdsReducer,
     bestStoryItems: bestStoryItemsReducer,
-    comments: commentStoryItemsReducer,
+    commentItems: commentStoryItemsReducer,
     showStoryIds: [],
     showStoryItems: {},
     askStoryIds: [],

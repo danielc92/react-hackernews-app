@@ -27,13 +27,13 @@ class ReactStory extends Component {
         const { id, stories } = this.props;
         const story = stories[id]
         return (
-            <React.Fragment>
+            <div style={{ border: '1px solid #f3f3f3', padding: '1rem', marginBottom: '1rem'}}>
             { 
                 story ? 
                 <ReactStoryDescription story={story}/> 
                 : null 
             } 
-            </React.Fragment>
+            </div>
         )
     }
 }

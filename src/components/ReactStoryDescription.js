@@ -10,7 +10,7 @@ export default class ReactStoryDescription extends Component {
         return (
             <div>
                 <Descriptions
-                style={{marginBottom: '2rem'}}
+
                 bordered={false}
                 title={story.title}>
                     <Item label="Author">{ story.by }</Item>
@@ -19,8 +19,8 @@ export default class ReactStoryDescription extends Component {
                     <Item label="Created">{ new Date(story.time).toUTCString() }</Item>
                     <Item label="Type"><Tag color="green">{story.type}</Tag></Item>    
                     <Item label="External Link"><Button type="primary" href={story.url} target="_blank">External Link</Button></Item> 
-                    { story.kids ? <ReactComments kids={story.kids}/> : null}
                 </Descriptions>   
+                { story.kids ? <ReactComments kids={story.kids}/> : null}
             </div>
         )
     }

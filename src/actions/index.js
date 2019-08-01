@@ -83,7 +83,7 @@ export const fetchNewStoryItem = (id) => async (dispatch, getState) => {
 }
 
 export const fetchCommentItem = (id) => async (dispatch, getState) => {
-    const response = await hackernewsApi.get(`v0/item${id}.json`)
+    const response = await hackernewsApi.get(`v0/item/${id}.json`)
 
     dispatch({
         type: FETCH_COMMENT_ITEM,
