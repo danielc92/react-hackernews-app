@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTopStoryItem, fetchNewStoryItem, fetchBestStoryItem } from '../../../actions';
+import { fetchTopStoryItem, fetchAskStoryItem, fetchShowStoryItem, fetchNewStoryItem, fetchBestStoryItem } from '../../../actions';
 import ReactStoryDescription from './ReactStoryDescription';
 import ReactCommentPlaceholder from '../../loaders/ReactCommentPlaceholder';
 
@@ -10,14 +10,18 @@ class ReactStory extends Component {
     componentDidMount() {
         const { id, type} = this.props
         switch (type) {
+            case 'show':
+                this.props.fetchShowStoryItem(id);
+            case 'ask':
+                this.props.fetchAskStoryItem(id);
             case 'new':
-                this.props.fetchNewStoryItem(id)
+                this.props.fetchNewStoryItem(id);
             case 'best':
-                this.props.fetchBestStoryItem(id)
+                this.props.fetchBestStoryItem(id);
             case 'top':
-                this.props.fetchTopStoryItem(id)
+                this.props.fetchTopStoryItem(id);
             default: 
-                console.log('no case met')
+                console.log(`No case met for id ${id}`);
         }
     }
 
