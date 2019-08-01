@@ -1,7 +1,5 @@
 import hackernewsApi from '../api';
-import responsiveObserve from 'antd/lib/_util/responsiveObserve';
-
-export const FETCH_TOP_STORY_IDS = 'FETCH_TOP_STORY_IDS';
+import { FETCH_TOP_STORY_IDS } from '../constants';
 
 export const fetchTopStoryIds = () => async (dispatch, getState) => {
 
