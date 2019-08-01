@@ -1,7 +1,18 @@
 import { combineReducers } from 'redux'
 import { 
+    FETCH_LIMIT, 
     FETCH_TOP_STORY_IDS, 
-    FETCH_TOP_STORY_ITEM } from '../constants';
+    FETCH_TOP_STORY_ITEM,
+    FETCH_ASK_STORY_IDS,
+    FETCH_ASK_STORY_ITEM,
+    FETCH_NEW_STORY_IDS,
+    FETCH_NEW_STORY_ITEM,
+    FETCH_SHOW_STORY_IDS,
+    FETCH_SHOW_STORY_ITEM,
+    FETCH_BEST_STORY_IDS,
+    FETCH_BEST_STORY_ITEM,
+    FETCH_JOB_ITEM,
+    FETCH_JOB_IDS, } from '../constants';
 
 const topStoryIdsReducer = (state = [], action) => {
     const { payload, type } = action
