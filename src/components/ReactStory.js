@@ -1,13 +1,38 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchTopStoryItem } from '../actions';
 
-export default class ReactStory extends Component {
+
+class ReactStory extends Component {
+
+    componentDidMount() {
+        const {id} = this.props
+        if (id) {
+            this.props.fetchTopStoryItem(id)
+        }
+    }
+
     render() {
-        console.log(this.props.id)
-    
+
+        const { id, stories } = this.props;
+        const story = stories[id]
         return (
             <div stlye={{border: '1px solid black', padding: '0.8rem'}}>
-                {this.props.id}
+            { story ? story.title : null } 
             </div>
+
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        stories: state.topStoryItems
+    }
+}
+
+const mapActionsToProps = {
+    fetchTopStoryItem
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(ReactStory)

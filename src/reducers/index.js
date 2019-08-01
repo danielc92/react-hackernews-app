@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux'
-import { FETCH_TOP_STORY_IDS } from '../constants';
+import { 
+    FETCH_TOP_STORY_IDS, 
+    FETCH_TOP_STORY_ITEM } from '../constants';
 
 const topStoryIdsReducer = (state = [], action) => {
     const { payload, type } = action
@@ -11,10 +13,20 @@ const topStoryIdsReducer = (state = [], action) => {
     }
 }
 
+const topStoryItemsReducer = (state = {}, action) => {
+    const { payload, type } = action
+    switch (type) {
+        case FETCH_TOP_STORY_ITEM:
+            return {...state, ...payload};
+        default: 
+            return state;
+    }
+}
+
 export const rootReducer = combineReducers({
 
     topStoryIds: topStoryIdsReducer,
-    topStoryItems: {},
+    topStoryItems: topStoryItemsReducer,
     newStoryIds: [],
     newStoryItems: {},
     bestStoryIds: [],
