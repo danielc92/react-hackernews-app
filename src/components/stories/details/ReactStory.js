@@ -8,9 +8,7 @@ import ReactCommentPlaceholder from '../../loaders/ReactCommentPlaceholder';
 class ReactStory extends Component {
 
     componentDidMount() {
-
         const { id, type} = this.props
-        console.log(type)
         switch (type) {
             case 'new':
                 this.props.fetchNewStoryItem(id)
