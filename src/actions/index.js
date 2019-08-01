@@ -46,6 +46,28 @@ export const fetchNewStoryIds = () => async (dispatch, getState) => {
     })
 }
 
+export const fetchShowStoryIds = () => async (dispatch, getState) => {
+
+    const response = await hackernewsApi.get(`v0/showstories.json`)
+
+    dispatch({
+        type: FETCH_SHOW_STORY_IDS,
+        payload: response.data.slice(0, FETCH_LIMIT)
+    })
+}
+
+export const fetchShowStoryItem = (id) => async (dispatch, getState) => {
+
+    const response = await hackernewsApi.get(`v0/item/${id}.json`)
+
+    dispatch({
+        type: FETCH_SHOW_STORY_ITEM,
+        payload: {
+            [id]: response.data
+        }
+    })
+}
+
 export const fetchTopStoryItem = (id) => async (dispatch, getState) => {
 
     const response = await hackernewsApi.get(`v0/item/${id}.json`)
