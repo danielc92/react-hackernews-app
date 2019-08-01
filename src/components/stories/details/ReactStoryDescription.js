@@ -34,12 +34,20 @@ export default class ReactStoryDescription extends Component {
                     <Item><Button href={story.url} target="_blank">Visit Source</Button></Item> 
                     
                 </Descriptions>  
+                {
+                    story.kids && this.state.showComments === false
+                    ?  
+                    <a onClick={this.toggleCommentState}>Load comments</a>
+                    : 
+                    null
+                    
+                }
                 { 
                     this.state.showComments
                     ? 
                     <ReactComments kids={story.kids}/>
                     : 
-                    <a onClick={this.toggleCommentState}>Load comments</a>
+                    null
                 }
             </div>
         )
