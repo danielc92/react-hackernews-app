@@ -2,15 +2,18 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { fetchTopStoryIds } from '../actions';
 
-export default class ReactTopStories extends Component {
+
+class ReactTopStories extends Component {
 
     componentDidMount() {
-
+        console.log(this.props.topStoryIds)
+        this.props.fetchTopStoryIds()
     }
 
     render() {
+        
         return (
-
+            <div>top stories</div>
         )
     }
 }
@@ -20,4 +23,10 @@ const mapStateToProps = (state) => {
         topStoryIds: state.topStoryIds
     }
 }
+
+const mapActionsToProps = {
+    fetchTopStoryIds
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(ReactTopStories)
 
