@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTopStoryItem, fetchNewStoryItem, fetchBestStoryItem } from '../actions';
+import { fetchTopStoryItem, fetchNewStoryItem, fetchBestStoryItem } from '../../../actions';
 import ReactStoryDescription from './ReactStoryDescription';
 
 

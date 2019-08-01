@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Layout } from 'antd'
-import ReactTopStories from '../ReactTopStories';
-import ReactNewStories from '../ReactNewStories';
-import ReactBestStories from '../ReactBestStories';
+import ReactTopStories from '../stories/ReactTopStories';
+import ReactNewStories from '../stories/ReactNewStories';
+import ReactBestStories from '../stories/ReactBestStories';
 import {Route} from 'react-router-dom';
 
 export default class ReactMain extends Component {

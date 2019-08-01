@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Descriptions, Button, Tag } from 'antd';
-import ReactComments from './ReactComments';
+import ReactComments from '../../comments/ReactComments';
 const { Item } = Descriptions;
 
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchBestStoryIds } from '../actions';
-import ReactStory from './ReactStory';
-import ReactSpinner from './ReactSpinner';
+import { fetchBestStoryIds } from '../../actions';
+import ReactStory from './details/ReactStory';
+import ReactSpinner from '../loaders/ReactSpinner';
 
 class ReactBestStories extends Component {
 
