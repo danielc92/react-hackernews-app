@@ -47,7 +47,9 @@ const mapStateToProps = (state) => {
         stories: {
             ...state.topStoryItems, 
             ...state.bestStoryItems, 
-            ...state.newStoryItems}
+            ...state.newStoryItems,
+            ...state.showStoryItems,
+            ...state.askStoryItems}
     }
 }
 
@@ -55,6 +57,8 @@ const mapActionsToProps = {
     fetchTopStoryItem,
     fetchNewStoryItem,
     fetchBestStoryItem,
+    fetchAskStoryItem,
+    fetchShowStoryItem
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(ReactStory)

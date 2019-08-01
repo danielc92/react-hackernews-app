@@ -18,7 +18,7 @@ export default class ReactStoryDescription extends Component {
 
     render() {
 
-        const { by, score, title, descendants, kids, time, type, url } = this.props.story;
+        const { by, score, title, descendants, kids, time, type, url, text } = this.props.story;
         
         if (time) {
             var timeDiff = calculateTimeDiffString(time);
@@ -27,16 +27,16 @@ export default class ReactStoryDescription extends Component {
         return (
             <div>
                 <Descriptions
-
                 bordered={false}
                 title={ title }>
+                    
                     <Item>By: { by }</Item>
                     <Item label="Score">{ score }</Item>
                     <Item label="Replies">{ descendants }</Item>
                     <Item>Created: { timeDiff }</Item>
                     <Item label="Type"><Tag color="green">{ type }</Tag></Item>    
                     <Item><Button href={ url } target="_blank">Visit Source</Button></Item> 
-                    
+                    { text ? <p dangerouslySetInnerHTML={{ __html: text }}>{text}</p> : null}
                 </Descriptions>  
                 {
                     kids && this.state.showComments === false
