@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Layout from 'antd'
+import { Layout } from 'antd'
 
 
 export default class ReactMain extends Component {

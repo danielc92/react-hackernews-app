@@ -9,4 +9,4 @@ function ReactHeader() {
     )
 }
 
-export default ReactHeader
+export default ReactHeader;
