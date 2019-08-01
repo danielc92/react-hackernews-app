@@ -1,19 +1,19 @@
-import { combineReducers } from 'react'
+import { combineReducers } from 'redux'
 import { FETCH_TOP_STORY_IDS } from '../constants';
 
 const topStoryIdsReducer = (state = [], action) => {
     const { payload, type } = action
     switch (type) {
-        case:
-            
+        case FETCH_TOP_STORY_IDS:
+            return payload;
         default: 
-            return state
+            return state;
     }
 }
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
 
-    topStoryIds: [],
+    topStoryIds: topStoryIdsReducer,
     topStoryItems: {},
     newStoryIds: [],
     newStoryItems: {},
@@ -26,6 +26,5 @@ const rootReducer = combineReducers({
     jobStoryIds: [],
     jobStoryItems: {},
     comments: {},
-
     test: ['its', 'daniel', 'over', 'here']   
 })
