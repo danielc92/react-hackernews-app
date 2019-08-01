@@ -13,9 +13,12 @@ function ReactHeader() {
                 defaultSelectedKeys={['2']}
                 style={{ lineHeight: '64px' }}
             >
-                <Menu.Item key="top-stories">Top Stories</Menu.Item>
-                <Menu.Item key="2">Ask Stories</Menu.Item>
-                <Menu.Item key="3">nav 3</Menu.Item>
+                <Menu.Item key="topStories">Top Stories</Menu.Item>
+                <Menu.Item key="newStories">New Stories</Menu.Item>
+                <Menu.Item key="bestStories">Best Stories</Menu.Item>
+                <Menu.Item key="showStories">Show Stories</Menu.Item>
+                <Menu.Item key="askStories">Ask Stories</Menu.Item>
+                <Menu.Item key="jobStories">Job Stories</Menu.Item>
             </Menu>
         </Header>
     )
