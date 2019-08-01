@@ -25,15 +25,6 @@ const topStoryIdsReducer = (state = [], action) => {
     }
 }
 
-const showStoryIdsReducer = (state = [], action) => {
-    const { payload, type } = action
-    switch (type) {
-        case FETCH_SHOW_STORY_IDS:
-            return payload;
-        default: 
-            return state;
-    }
-}
 
 const topStoryItemsReducer = (state = {}, action) => {
     const { payload, type } = action
@@ -105,6 +96,37 @@ const showStoryItemsReducer = (state = {}, action) => {
     }
 }
 
+const showStoryIdsReducer = (state = [], action) => {
+    const { payload, type } = action
+    switch (type) {
+        case FETCH_SHOW_STORY_IDS:
+            return payload;
+        default: 
+            return state;
+    }
+}
+
+
+const askStoryItemsReducer = (state = {}, action) => {
+    const { payload, type } = action
+    switch (type) {
+        case FETCH_ASK_STORY_ITEM:
+            return {...state, ...payload};
+        default: 
+            return state;
+    }
+}
+
+const askStoryIdsReducer = (state = [], action) => {
+    const { payload, type } = action
+    switch (type) {
+        case FETCH_ASK_STORY_IDS:
+            return payload;
+        default: 
+            return state;
+    }
+}
+
 
 
 export const rootReducer = combineReducers({
@@ -118,8 +140,8 @@ export const rootReducer = combineReducers({
     commentItems: commentStoryItemsReducer,
     showStoryIds: showStoryIdsReducer,
     showStoryItems: showStoryItemsReducer,
-    askStoryIds: [],
-    askStoryItems: {},
+    askStoryIds: askStoryIdsReducer,
+    askStoryItems: askStoryItemsReducer,
     jobStoryIds: [],
     jobStoryItems: {},
     test: ['its', 'daniel', 'over', 'here']   
