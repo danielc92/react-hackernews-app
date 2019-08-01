@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTopStoryItem } from '../actions';
+import ReactStoryDescription from './ReactStoryDescription';
 
 
 class ReactStory extends Component {
@@ -17,10 +18,13 @@ class ReactStory extends Component {
         const { id, stories } = this.props;
         const story = stories[id]
         return (
-            <div stlye={{border: '1px solid black', padding: '0.8rem'}}>
-            { story ? story.title : null } 
-            </div>
-
+            <React.Fragment>
+            { 
+                story ? 
+                <ReactStoryDescription story={story}/> 
+                : null 
+            } 
+            </React.Fragment>
         )
     }
 }

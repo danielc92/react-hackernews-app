@@ -15,6 +15,7 @@ class ReactTopStories extends Component {
         const loaded = topStoryIds.length > 0 ? true: false
         return (
             <React.Fragment>
+                
                 { loaded ? topStoryIds.map(storyId => <ReactStory key={storyId} id={storyId}/>): <p>No stories have been loaded</p>}
             </React.Fragment>
         )
