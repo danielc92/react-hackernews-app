@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Descriptions, Button, Tag } from 'antd';
+import ReactComments from './ReactComments';
 const { Item } = Descriptions;
+
 
 export default class ReactStoryDescription extends Component {
     render() {
@@ -17,7 +19,7 @@ export default class ReactStoryDescription extends Component {
                     <Item label="Created">{ new Date(story.time).toUTCString() }</Item>
                     <Item label="Type"><Tag color="green">{story.type}</Tag></Item>    
                     <Item label="External Link"><Button type="primary" href={story.url} target="_blank">External Link</Button></Item> 
-                    
+                    { story.kids ? <ReactComments kids={story.kids}/> : null}
                 </Descriptions>   
             </div>
         )

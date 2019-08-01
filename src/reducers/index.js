@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import { 
-    FETCH_LIMIT, 
+    FETCH_LIMIT,
+    FETCH_COMMENT_ITEM,
     FETCH_TOP_STORY_IDS, 
     FETCH_TOP_STORY_ITEM,
     FETCH_ASK_STORY_IDS,
@@ -74,6 +75,16 @@ const newStoryItemsReducer = (state = {}, action) => {
     }
 }
 
+const commentStoryItemsReducer = (state = {}, action) => {
+    const { payload, type } = action
+    switch (type) {
+        case FETCH_COMMENT_ITEM:
+            return {...state, ...payload};
+        default: 
+            return state;
+    }
+}
+
 
 export const rootReducer = combineReducers({
 
@@ -83,12 +94,12 @@ export const rootReducer = combineReducers({
     newStoryItems: newStoryItemsReducer,
     bestStoryIds: bestStoryIdsReducer,
     bestStoryItems: bestStoryItemsReducer,
+    comments: commentStoryItemsReducer,
     showStoryIds: [],
     showStoryItems: {},
     askStoryIds: [],
     askStoryItems: {},
     jobStoryIds: [],
     jobStoryItems: {},
-    comments: {},
     test: ['its', 'daniel', 'over', 'here']   
 })

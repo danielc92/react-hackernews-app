@@ -18,4 +18,6 @@ export const FETCH_SHOW_STORY_ITEM = 'FETCH_SHOW_STORY_ITEM';
 export const FETCH_JOB_IDS = 'FETCH_JOBS_IDS';
 export const FETCH_JOB_ITEM = 'FETCH_JOB_ITEM';
 
+export const FETCH_COMMENT_ITEM = 'FETCH_COMMENT_ITEM';
+
 export const FETCH_LIMIT = 5;
