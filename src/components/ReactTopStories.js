@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { fetchTopStoryIds } from '../actions';
 import ReactStory from './ReactStory';
+import ReactSpinner from './ReactSpinner';
 
 class ReactTopStories extends Component {
 
@@ -14,7 +15,8 @@ class ReactTopStories extends Component {
         const loaded = topStoryIds.length > 0 ? true: false
         return (
             <React.Fragment>
-                { loaded ? topStoryIds.map(storyId => <ReactStory type="top" key={storyId} id={storyId}/>): <p>No stories have been loaded</p>}
+                { loaded ? topStoryIds.map(storyId => <ReactStory type="top" key={storyId} id={storyId}/>): 
+                <ReactSpinner/>}
             </React.Fragment>
         )
     }

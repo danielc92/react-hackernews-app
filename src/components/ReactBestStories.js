@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { fetchBestStoryIds } from '../actions';
 import ReactStory from './ReactStory';
-import { Spin } from 'antd'
+import ReactSpinner from './ReactSpinner';
 
 class ReactBestStories extends Component {
 
@@ -18,7 +18,7 @@ class ReactBestStories extends Component {
                 { 
                     loaded ? 
                     bestStoryIds.map(storyId => <ReactStory type="best" key={storyId} id={storyId}/>): 
-                    <Spin></Spin>
+                    <ReactSpinner/>
                 }
             </React.Fragment>
         )
