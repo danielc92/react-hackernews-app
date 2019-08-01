@@ -6,10 +6,9 @@ const { Header } = Layout;
 
 function ReactHeader() {
     return (
-        <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+        <Header style={{ backgroundColor:'white', position: 'fixed', zIndex: 1, width: '100%' }}>
             <div className="logo" />
             <Menu
-                theme="dark"
                 mode="horizontal"
                 defaultSelectedKeys={['topStories']}
                 style={{ lineHeight: '64px' }}
