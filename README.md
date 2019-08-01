@@ -1,3 +1,9 @@
+# Hacker News App
+Creating a react application powered by the hacker news firebase api.
+
+## Sources
+- [Hacker news api documentation](https://github.com/HackerNews/API)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

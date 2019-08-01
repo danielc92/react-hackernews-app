@@ -5,7 +5,7 @@ import App from './components/App';
 // ant design style sheet
 import 'antd/dist/antd.css';
 
-// redux
+// redux and redux middleware
 import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
