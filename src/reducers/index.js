@@ -34,14 +34,55 @@ const topStoryItemsReducer = (state = {}, action) => {
     }
 }
 
+const bestStoryIdsReducer = (state = [], action) => {
+    const { payload, type } = action
+    switch (type) {
+        case FETCH_BEST_STORY_IDS:
+            return payload;
+        default: 
+            return state;
+    }
+}
+
+const bestStoryItemsReducer = (state = {}, action) => {
+    const { payload, type } = action
+    switch (type) {
+        case FETCH_BEST_STORY_ITEM:
+            return {...state, ...payload};
+        default: 
+            return state;
+    }
+}
+
+const newStoryIdsReducer = (state = [], action) => {
+    const { payload, type } = action
+    switch (type) {
+        case FETCH_NEW_STORY_IDS:
+            return payload;
+        default: 
+            return state;
+    }
+}
+
+const newStoryItemsReducer = (state = {}, action) => {
+    const { payload, type } = action
+    switch (type) {
+        case FETCH_NEW_STORY_ITEM:
+            return {...state, ...payload};
+        default: 
+            return state;
+    }
+}
+
+
 export const rootReducer = combineReducers({
 
     topStoryIds: topStoryIdsReducer,
     topStoryItems: topStoryItemsReducer,
-    newStoryIds: [],
-    newStoryItems: {},
-    bestStoryIds: [],
-    bestStoryItems: {},
+    newStoryIds: newStoryIdsReducer,
+    newStoryItems: newStoryItemsReducer,
+    bestStoryIds: bestStoryIdsReducer,
+    bestStoryItems: bestStoryItemsReducer,
     showStoryIds: [],
     showStoryItems: {},
     askStoryIds: [],
