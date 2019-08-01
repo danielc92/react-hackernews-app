@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import ReactComments from './ReactComments';
 import { connect } from 'react-redux';
 import { fetchCommentItem } from '../../actions';
-import { Comment, Avatar, Skeleton } from 'antd';
+import { Comment, Avatar } from 'antd';
+import ReactCommentPlaceholder from '../loaders/ReactCommentPlaceholder';
 
 
 class ReactComment extends Component {
@@ -40,12 +41,7 @@ class ReactComment extends Component {
                         { data.kids ? <ReactComments kids={data.kids}/>: null}
                     </Comment>
                     :  
-                    <Skeleton 
-                    loading={true}
-                    avatar 
-                    active
-                    paragraph={{ rows: 2 }} 
-                     />
+                    <ReactCommentPlaceholder/>
                 }
             </React.Fragment>
         )

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTopStoryItem, fetchNewStoryItem, fetchBestStoryItem } from '../../../actions';
 import ReactStoryDescription from './ReactStoryDescription';
+import ReactCommentPlaceholder from '../../loaders/ReactCommentPlaceholder';
 
 
 class ReactStory extends Component {
@@ -31,7 +32,8 @@ class ReactStory extends Component {
             { 
                 story ? 
                 <ReactStoryDescription story={story}/> 
-                : null 
+                :
+                <ReactCommentPlaceholder/> 
             } 
             </div>
         )
