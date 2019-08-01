@@ -25,12 +25,56 @@ export const fetchTopStoryIds = () => async (dispatch, getState) => {
     })
 }
 
+export const fetchBestStoryIds = () => async (dispatch, getState) => {
+
+    const response = await hackernewsApi.get(`v0/beststories.json`)
+
+    dispatch({
+        type: FETCH_BEST_STORY_IDS,
+        payload: response.data.slice(0, FETCH_LIMIT)
+    })
+}
+
+export const fetchNewStoryIds = () => async (dispatch, getState) => {
+
+    const response = await hackernewsApi.get(`v0/newstories.json`)
+
+    dispatch({
+        type: FETCH_NEW_STORY_IDS,
+        payload: response.data.slice(0, FETCH_LIMIT)
+    })
+}
+
 export const fetchTopStoryItem = (id) => async (dispatch, getState) => {
 
     const response = await hackernewsApi.get(`v0/item/${id}.json`)
 
     dispatch({
         type: FETCH_TOP_STORY_ITEM,
+        payload: {
+            [id]: response.data
+        }
+    })
+}
+
+export const fetchBestStoryItem = (id) => async (dispatch, getState) => {
+
+    const response = await hackernewsApi.get(`v0/item/${id}.json`)
+
+    dispatch({
+        type: FETCH_BEST_STORY_ITEM,
+        payload: {
+            [id]: response.data
+        }
+    })
+}
+
+export const fetchNewStoryItem = (id) => async (dispatch, getState) => {
+
+    const response = await hackernewsApi.get(`v0/item/${id}.json`)
+
+    dispatch({
+        type: FETCH_NEW_STORY_ITEM,
         payload: {
             [id]: response.data
         }

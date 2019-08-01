@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTopStoryItem } from '../actions';
+import { fetchTopStoryItem, fetchNewStoryItem, fetchBestStoryItem } from '../actions';
 import ReactStoryDescription from './ReactStoryDescription';
 
 
 class ReactStory extends Component {
 
     componentDidMount() {
-        const {id} = this.props
-        if (id) {
-            this.props.fetchTopStoryItem(id)
+
+        const { id, type} = this.props
+        console.log(type)
+        switch (type) {
+            case 'new':
+                this.props.fetchNewStoryItem(id)
+            case 'best':
+                this.props.fetchBestStoryItem(id)
+            case 'top':
+                this.props.fetchTopStoryItem(id)
+            default: 
+                console.log('no case met')
         }
     }
 
@@ -31,12 +40,17 @@ class ReactStory extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        stories: state.topStoryItems
+        stories: {
+            ...state.topStoryItems, 
+            ...state.bestStoryItems, 
+            ...state.newStoryItems}
     }
 }
 
 const mapActionsToProps = {
-    fetchTopStoryItem
+    fetchTopStoryItem,
+    fetchNewStoryItem,
+    fetchBestStoryItem,
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(ReactStory)
