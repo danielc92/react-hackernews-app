@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Descriptions, Button, Tag } from 'antd';
+import { calculateTimeDiffString } from '../../../helpers';
 import ReactComments from '../../comments/ReactComments';
 const { Item } = Descriptions;
 
@@ -19,6 +20,10 @@ export default class ReactStoryDescription extends Component {
 
         const { by, score, title, descendants, kids, time, type, url } = this.props.story;
         
+        if (time) {
+            var timeDiff = calculateTimeDiffString(time);
+        }
+
         return (
             <div>
                 <Descriptions
@@ -28,7 +33,7 @@ export default class ReactStoryDescription extends Component {
                     <Item>By: { by }</Item>
                     <Item label="Score">{ score }</Item>
                     <Item label="Replies">{ descendants }</Item>
-                    <Item>Posted on: { new Date(time * 1000).toUTCString() }</Item>
+                    <Item>Created: { timeDiff }</Item>
                     <Item label="Type"><Tag color="green">{ type }</Tag></Item>    
                     <Item><Button href={ url } target="_blank">Visit Source</Button></Item> 
                     
