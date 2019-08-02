@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Descriptions, Button, Tag } from 'antd';
 import { calculateTimeDiffString } from '../../../helpers';
+import ReactCommentPlaceholder from '../../loaders/ReactCommentPlaceholder';
 import ReactComments from '../../comments/ReactComments';
 const { Item } = Descriptions;
 
@@ -19,40 +20,44 @@ export default class ReactStoryDescription extends Component {
     render() {
 
         const { by, score, title, descendants, kids, time, type, url, text } = this.props.story;
-        
+        const { story } = this.props;
         if (time) {
             var timeDiff = calculateTimeDiffString(time);
         }
 
         return (
-            <div>
-                <Descriptions
-                title={ title }>
-                   
-                    <Item>By: { by }</Item>
-                    <Item label="Score">{ score }</Item>
-                    <Item label="Replies">{ descendants }</Item>
-                    <Item>Created: { timeDiff }</Item>
-                    <Item label="Type"><Tag color="green">{ type }</Tag></Item>    
-                    <Item><Button href={ url } target="_blank">Visit Source</Button></Item> 
-                    <div>{text ? <span dangerouslySetInnerHTML={{ __html: text}}></span> : null}</div>
-                </Descriptions>  
+            <React.Fragment>
                 {
-                    kids && this.state.showComments === false
-                    ?  
-                    <a onClick={this.toggleCommentState}>Load comments</a>
-                    : 
-                    null
-                    
-                }
-                { 
-                    this.state.showComments
-                    ? 
-                    <ReactComments kids={kids}/>
-                    : 
-                    null
-                }
-            </div>
+                    title ? [
+                    <Descriptions title={ title }>
+                        <Item>By: { by }</Item>
+                        <Item label="Score">{ score }</Item>
+                        <Item label="Replies">{ descendants }</Item>
+                        <Item>Created: { timeDiff }</Item>
+                        <Item label="Type"><Tag color="green">{ type }</Tag></Item>    
+                        <Item><Button href={ url } target="_blank">Visit Source</Button></Item> 
+                        <div>{text ? <span dangerouslySetInnerHTML={{ __html: text}}></span> : null}</div>
+                    </Descriptions>,
+                    (
+                        kids && this.state.showComments === false
+                        ?  
+                        <a onClick={this.toggleCommentState}>Load comments</a>
+                        : 
+                        null
+                        
+                    ),
+                    ( 
+                        this.state.showComments
+                        ? 
+                        <ReactComments kids={kids}/>
+                        : 
+                        null
+                    )]
+                        :
+                        <ReactCommentPlaceholder/>
+                    }
+
+            </React.Fragment>
         )
     }
 }

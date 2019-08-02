@@ -8,7 +8,7 @@ import {
     fetchNewStoryItem, 
     fetchBestStoryItem } from '../../../actions';
 import ReactStoryDescription from './ReactStoryDescription';
-import ReactCommentPlaceholder from '../../loaders/ReactCommentPlaceholder';
+
 
 
 class ReactStory extends Component {
@@ -29,7 +29,7 @@ class ReactStory extends Component {
             case 'top':
                 this.props.fetchTopStoryItem(id);
             default: 
-                console.log(`No case met for id ${id}`);
+                return
         }
     }
 
@@ -41,7 +41,7 @@ class ReactStory extends Component {
                 story ? 
                 <ReactStoryDescription story={story}/> 
                 :
-                <ReactCommentPlaceholder/> 
+                null
             } 
             </div>
         )
@@ -51,7 +51,6 @@ class ReactStory extends Component {
 const mapStateToProps = (state, ownProps) => {
 
     const { type , id} = ownProps;
-    console.log(type, id)
 
     if (type === 'new') {
         return {
