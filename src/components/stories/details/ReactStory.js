@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTopStoryItem, fetchAskStoryItem, fetchShowStoryItem, fetchNewStoryItem, fetchBestStoryItem } from '../../../actions';
+import { 
+    fetchTopStoryItem, 
+    fetchAskStoryItem, 
+    fetchShowStoryItem, 
+    fetchJobStoryItem,
+    fetchNewStoryItem, 
+    fetchBestStoryItem } from '../../../actions';
 import ReactStoryDescription from './ReactStoryDescription';
 import ReactCommentPlaceholder from '../../loaders/ReactCommentPlaceholder';
 
@@ -10,6 +16,8 @@ class ReactStory extends Component {
     componentDidMount() {
         const { id, type} = this.props
         switch (type) {
+            case 'job':
+                this.props.fetchJobStoryItem(id);
             case 'show':
                 this.props.fetchShowStoryItem(id);
             case 'ask':
@@ -49,7 +57,8 @@ const mapStateToProps = (state) => {
             ...state.bestStoryItems, 
             ...state.newStoryItems,
             ...state.showStoryItems,
-            ...state.askStoryItems}
+            ...state.askStoryItems,
+            ...state.jobStoryItems}
     }
 }
 
@@ -57,6 +66,7 @@ const mapActionsToProps = {
     fetchTopStoryItem,
     fetchNewStoryItem,
     fetchBestStoryItem,
+    fetchJobStoryItem,
     fetchAskStoryItem,
     fetchShowStoryItem
 }

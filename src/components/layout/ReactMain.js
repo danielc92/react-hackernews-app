@@ -5,6 +5,7 @@ import ReactNewStories from '../stories/ReactNewStories';
 import ReactBestStories from '../stories/ReactBestStories';
 import ReactShowStories from '../stories/ReactShowStories';
 import ReactAskStories from '../stories/ReactAskStories';
+import ReactJobs from '../stories/ReactJobs';
 import {Route} from 'react-router-dom';
 
 
@@ -20,6 +21,7 @@ export default class ReactMain extends Component {
                 <Route path="/best-stories" component={ReactBestStories}/>
                 <Route path="/show-stories" component={ReactShowStories}/>
                 <Route path="/ask-stories" component={ReactAskStories}/>
+                <Route path="/jobs" component={ReactJobs}/>
 
             </div>
             </Layout.Content>

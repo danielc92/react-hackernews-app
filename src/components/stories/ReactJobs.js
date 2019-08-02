@@ -4,7 +4,7 @@ import { fetchJobStoryIds } from '../../actions';
 import ReactStory from './details/ReactStory';
 import ReactSpinner from '../loaders/ReactSpinner';
 
-class ReactJobStories extends Component {
+class ReactJobs extends Component {
 
     componentDidMount() {
         this.props.fetchJobStoryIds()
@@ -32,5 +32,5 @@ const mapActionsToProps = {
     fetchJobStoryIds
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(ReactJobStories)
+export default connect(mapStateToProps, mapActionsToProps)(ReactJobs)
 

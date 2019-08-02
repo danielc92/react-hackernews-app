@@ -18,7 +18,7 @@ function ReactHeader() {
                 <Menu.Item key="bestStories"><Link to="/best-stories">Best Stories</Link></Menu.Item>
                 <Menu.Item key="showStories"><Link to="/show-stories">Show Stories</Link></Menu.Item>
                 <Menu.Item key="askStories"><Link to="/ask-stories">Ask Stories</Link></Menu.Item>
-                <Menu.Item key="jobStories"><Link to="/job-stories">Jobs</Link></Menu.Item>
+                <Menu.Item key="jobStories"><Link to="/jobs">Jobs</Link></Menu.Item>
             </Menu>
         </Header>
     )
