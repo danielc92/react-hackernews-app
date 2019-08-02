@@ -27,15 +27,28 @@
 
     <title>Daniels Hacker News App</title>
     <style>
+        /* Override antd comment title */
         .ant-descriptions-title {
-          font-size: 1.50rem !important;
+          font-size: 1.40rem !important;
           font-family: 'Roboto Mono', monospace !important;
         }
-
+        
+        /* Override antd nested comment */
         .ant-comment-nested {
           margin-left: 23px !important;
         }
 
+        .container-custom {
+          background-color: white;
+          padding: 24px 130px;
+          min-height: 700px;
+        }
+
+        @media only screen and (max-width: 550px) {
+          .container-custom {
+            padding: 2px;
+          }
+        }
     </style>
   </head>
   <body>

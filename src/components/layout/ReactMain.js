@@ -13,7 +13,7 @@ export default class ReactMain extends Component {
     render() {
         return (
             <Layout.Content style={{ padding: '10px', marginTop: 64 }}>
-            <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
+            <div className="container-custom">
                 {/* Default to top stories if no path specified */}
                 <Route path="/" exact component={ReactTopStories}/>
                 <Route path="/top-stories" component={ReactTopStories}/>
