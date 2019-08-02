@@ -66,6 +66,29 @@ export const fetchAskStoryIds = () => async (dispatch, getState) => {
     })
 }
 
+export const fetchJobStoryIds = () => async (dispatch, getState) => {
+
+    const response = await hackernewsApi.get(`v0/jobstories.json`)
+
+    dispatch({
+        type: FETCH_JOB_STORY_IDS,
+        payload: response.data.slice(0, FETCH_LIMIT)
+    })
+}
+
+export const fetchJobStoryItem = (id) => async (dispatch, getState) => {
+
+    const response = await hackernewsApi.get(`v0/item/${id}.json`)
+
+    dispatch({
+        type: FETCH_JOB_STORY_ITEM,
+        payload: {
+            [id]: response.data
+        }
+    })
+}
+
+
 export const fetchAskStoryItem = (id) => async (dispatch, getState) => {
 
     const response = await hackernewsApi.get(`v0/item/${id}.json`)
