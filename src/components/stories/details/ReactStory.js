@@ -34,9 +34,7 @@ class ReactStory extends Component {
     }
 
     render() {
-
-        const { id, stories } = this.props;
-        const story = stories[id]
+        const { story } = this.props;
         return (
             <div style={{ border: '1px solid #f3f3f3', padding: '1rem', marginBottom: '1rem'}}>
             { 
@@ -50,15 +48,35 @@ class ReactStory extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        stories: {
-            ...state.topStoryItems, 
-            ...state.bestStoryItems, 
-            ...state.newStoryItems,
-            ...state.showStoryItems,
-            ...state.askStoryItems,
-            ...state.jobStoryItems}
+const mapStateToProps = (state, ownProps) => {
+
+    const { type , id} = ownProps;
+    console.log(type, id)
+
+    if (type === 'new') {
+        return {
+            story: { ...state.newStoryItems[id] }
+        }
+    } else if (type === 'top') {
+        return {
+            story: { ...state.topStoryItems[id] }
+        }
+    } else if (type === 'best') {
+        return {
+            story: { ...state.bestStoryItems[id] }
+        }
+    } else if (type === 'show') {
+        return {
+            story: { ...state.showStoryItems[id] }
+        }
+    } else if (type === 'job') {
+        return {
+            story: { ...state.jobStoryItems[id] }
+        }
+    } else if (type === 'ask') {
+        return {
+            story : { ...state.askStoryItems[id]}
+        }
     }
 }
 

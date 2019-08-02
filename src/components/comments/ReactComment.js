@@ -14,7 +14,8 @@ class ReactComment extends Component {
     }
 
     render() {
-        const data = this.props.comments[this.props.id]
+
+        const { data } = this.props;
         
         if (data) {
             var timeDiffString = calculateTimeDiffString(data.time)
@@ -43,9 +44,9 @@ class ReactComment extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return {
-        comments: state.commentItems
+        data: state.commentItems[ownProps.id]
     }
 }
 
