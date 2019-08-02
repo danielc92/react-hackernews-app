@@ -58,7 +58,7 @@ export const fetchShowStoryIds = () => async (dispatch, getState) => {
 
 export const fetchAskStoryIds = () => async (dispatch, getState) => {
 
-    const response = await hackernewsApi.get(`v0/showstories.json`)
+    const response = await hackernewsApi.get(`v0/askstories.json`)
 
     dispatch({
         type: FETCH_ASK_STORY_IDS,

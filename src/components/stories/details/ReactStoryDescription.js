@@ -27,16 +27,15 @@ export default class ReactStoryDescription extends Component {
         return (
             <div>
                 <Descriptions
-                bordered={false}
                 title={ title }>
-                    
+                   
                     <Item>By: { by }</Item>
                     <Item label="Score">{ score }</Item>
                     <Item label="Replies">{ descendants }</Item>
                     <Item>Created: { timeDiff }</Item>
                     <Item label="Type"><Tag color="green">{ type }</Tag></Item>    
                     <Item><Button href={ url } target="_blank">Visit Source</Button></Item> 
-                    { text ? <p dangerouslySetInnerHTML={{ __html: text }}>{text}</p> : null}
+                    <div>{text ? <span dangerouslySetInnerHTML={{ __html: text}}></span> : null}</div>
                 </Descriptions>  
                 {
                     kids && this.state.showComments === false
