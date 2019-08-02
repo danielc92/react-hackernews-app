@@ -13,24 +13,43 @@ import ReactStoryDescription from './ReactStoryDescription';
 
 class ReactStory extends Component {
 
+    state = {
+        fetched: false
+    }
+
+    toggleFetched = () => {
+        this.setState({
+            fetched: this.state.fetched
+        })
+    }
+
     componentDidMount() {
         const { id, type} = this.props
-        switch (type) {
-            case 'job':
-                this.props.fetchJobStoryItem(id);
-            case 'show':
-                this.props.fetchShowStoryItem(id);
-            case 'ask':
-                this.props.fetchAskStoryItem(id);
-            case 'new':
-                this.props.fetchNewStoryItem(id);
-            case 'best':
-                this.props.fetchBestStoryItem(id);
-            case 'top':
-                this.props.fetchTopStoryItem(id);
-            default: 
-                return
-        }
+
+        if (type === 'job' && this.state.fetched === false) {
+            this.props.fetchJobStoryItem(id);
+            this.toggleFetched()
+        } 
+        else if (type === 'new' && this.state.fetched === false) {
+            this.props.fetchNewStoryItem(id);
+            this.toggleFetched()
+        } 
+        else if (type === 'best' && this.state.fetched === false) {
+            this.props.fetchBestStoryItem(id);
+            this.toggleFetched()
+        } 
+        else if (type === 'ask' && this.state.fetched === false) {
+            this.props.fetchAskStoryItem(id);
+            this.toggleFetched()
+        } 
+        else if (type === 'show' && this.state.fetched === false) {
+            this.props.fetchShowStoryItem(id);
+            this.toggleFetched()
+        } 
+        else if (type === 'top' && this.state.fetched === false) {
+            this.props.fetchTopStoryItem(id);
+            this.toggleFetched()
+        } 
     }
 
     render() {

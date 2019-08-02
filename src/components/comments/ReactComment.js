@@ -14,7 +14,6 @@ class ReactComment extends Component {
     }
 
     render() {
-
         const { data } = this.props;
         
         if (data) {
