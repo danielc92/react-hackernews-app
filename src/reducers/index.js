@@ -46,6 +46,7 @@ const bestStoryIdsReducer = (state = [], action) => {
     }
 }
 
+
 const bestStoryItemsReducer = (state = {}, action) => {
     const { payload, type } = action
     switch (type) {
@@ -55,6 +56,7 @@ const bestStoryItemsReducer = (state = {}, action) => {
             return state;
     }
 }
+
 
 const newStoryIdsReducer = (state = [], action) => {
     const { payload, type } = action
@@ -66,6 +68,7 @@ const newStoryIdsReducer = (state = [], action) => {
     }
 }
 
+
 const newStoryItemsReducer = (state = {}, action) => {
     const { payload, type } = action
     switch (type) {
@@ -75,6 +78,7 @@ const newStoryItemsReducer = (state = {}, action) => {
             return state;
     }
 }
+
 
 const commentStoryItemsReducer = (state = {}, action) => {
     const { payload, type } = action
@@ -86,6 +90,7 @@ const commentStoryItemsReducer = (state = {}, action) => {
     }
 }
 
+
 const showStoryItemsReducer = (state = {}, action) => {
     const { payload, type } = action
     switch (type) {
@@ -95,6 +100,7 @@ const showStoryItemsReducer = (state = {}, action) => {
             return state;
     }
 }
+
 
 const showStoryIdsReducer = (state = [], action) => {
     const { payload, type } = action
@@ -117,6 +123,7 @@ const askStoryItemsReducer = (state = {}, action) => {
     }
 }
 
+
 const askStoryIdsReducer = (state = [], action) => {
     const { payload, type } = action
     switch (type) {
@@ -127,6 +134,26 @@ const askStoryIdsReducer = (state = [], action) => {
     }
 }
 
+const jobStoryItemsReducer = (state = {}, action) => {
+    const { payload, type } = action
+    switch (type) {
+        case FETCH_JOB_ITEM:
+            return {...state, ...payload};
+        default: 
+            return state;
+    }
+}
+
+
+const jobStoryIdsReducer = (state = [], action) => {
+    const { payload, type } = action
+    switch (type) {
+        case FETCH_JOB_IDS:
+            return payload;
+        default: 
+            return state;
+    }
+}
 
 
 export const rootReducer = combineReducers({
@@ -142,7 +169,7 @@ export const rootReducer = combineReducers({
     showStoryItems: showStoryItemsReducer,
     askStoryIds: askStoryIdsReducer,
     askStoryItems: askStoryItemsReducer,
-    jobStoryIds: [],
-    jobStoryItems: {},
-    test: ['its', 'daniel', 'over', 'here']   
+    jobStoryIds: jobStoryIdsReducer,
+    jobStoryItems: jobStoryItemsReducer
+ 
 })

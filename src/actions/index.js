@@ -71,7 +71,7 @@ export const fetchJobStoryIds = () => async (dispatch, getState) => {
     const response = await hackernewsApi.get(`v0/jobstories.json`)
 
     dispatch({
-        type: FETCH_JOB_STORY_IDS,
+        type: FETCH_JOB_IDS,
         payload: response.data.slice(0, FETCH_LIMIT)
     })
 }
@@ -81,7 +81,7 @@ export const fetchJobStoryItem = (id) => async (dispatch, getState) => {
     const response = await hackernewsApi.get(`v0/item/${id}.json`)
 
     dispatch({
-        type: FETCH_JOB_STORY_ITEM,
+        type: FETCH_JOB_ITEM,
         payload: {
             [id]: response.data
         }
