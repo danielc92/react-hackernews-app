@@ -26,6 +26,7 @@ class ReactComment extends Component {
                     data ? 
                     <Comment
                     style={{borderLeft: '1px solid #f3f3f3', padding: '.30rem 0rem'}}
+                    actions={<span>Replies { 55 }</span>}
                     datetime={<span>{ timeDiffString }</span>}
                     author={ <Tag color="purple">{ data.by }</Tag> }
                     content={

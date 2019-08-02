@@ -6,9 +6,8 @@ export default function ReactCommentPlaceholder() {
         <div>
             <Skeleton 
             loading={true}
-            avatar 
             active
-            paragraph={{ rows: 2 }} 
+            paragraph={{ rows: 1 }} 
                 />
         </div>
     )
