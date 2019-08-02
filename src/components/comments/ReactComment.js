@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ReactComments from './ReactComments';
 import { connect } from 'react-redux';
 import { fetchCommentItem } from '../../actions';
-import { Comment, Avatar } from 'antd';
+import { Comment, Tag } from 'antd';
 import ReactCommentPlaceholder from '../loaders/ReactCommentPlaceholder';
 import { calculateTimeDiffString } from '../../helpers';
 
@@ -25,11 +25,9 @@ class ReactComment extends Component {
                 { 
                     data ? 
                     <Comment
-                    shape="square"
-                    style={{marginBottom: '.6rem', border: '1px solid #f3f3f3', padding: '.75rem 1.5rem'}}
-                    avatar={<Avatar style={{ backgroundColor: '#339DFF' }} icon="user" />}
-                    actions={[<p>{timeDiffString}</p>]}
-                    author={ data.by }
+                    style={{borderLeft: '1px solid #f3f3f3', padding: '.30rem 0rem'}}
+                    datetime={<span>{ timeDiffString }</span>}
+                    author={ <Tag color="purple">{ data.by }</Tag> }
                     content={
                         <p className="help" dangerouslySetInnerHTML={{__html: data.text }}></p>
                     }>
