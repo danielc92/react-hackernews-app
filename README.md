@@ -52,7 +52,19 @@ Generated with `tree /f` in powershell
         index.js
 ```
 
+## Routes
+The available routes are accessible through the front end. The header menu provides automatic routing to these routes upon clicking.
+
+- `/best-stories`
+- `/top-stories`
+- `/new-stories`
+- `/ask-stories`
+- `/show-stories`
+- `/jobs`
+
 ## Sources
+Note: The hacker news api lists everything as an item, therefore an individual request must be sent for each item (story, job, comment, user etc). This poses some challenges in how to structure the overall application and how content is fetched, stored and loaded. Recursive calls for comments are particularly slow.
+
 - [Hacker news api documentation](https://github.com/HackerNews/API)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
