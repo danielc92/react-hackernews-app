@@ -20,4 +20,4 @@ export const FETCH_JOB_ITEM = 'FETCH_JOB_ITEM';
 
 export const FETCH_COMMENT_ITEM = 'FETCH_COMMENT_ITEM';
 
-export const FETCH_LIMIT = 30;
+export const FETCH_LIMIT = 150;

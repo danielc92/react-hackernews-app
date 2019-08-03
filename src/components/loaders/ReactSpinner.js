@@ -3,8 +3,11 @@ import { Spin } from 'antd';
 
 function ReactSpinner() {
     return (
-        <div style={{textAlign: 'center'}}>
-            <Spin size="large"/>
+        <div style={{textAlign: 'center', paddingTop: '1.6rem'}}>
+            <Spin 
+            delay={1200}
+            tip="Fetching data..."
+            size="large"/>
         </div>
     )
 }
